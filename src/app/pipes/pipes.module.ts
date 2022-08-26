@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CutextPipe } from './cutext.pipe';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CutextPipe
+  ],
   imports: [
     CommonModule
   ]
