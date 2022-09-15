@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
-import { CutextPipe } from '../pipes/cutext.pipe';
+import { PipesModule } from '../pipes/pipes.module';
+import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-poster-grid.component';
+import { RatingModule } from 'ng-starrating';
 
 
 
@@ -11,15 +13,18 @@ import { CutextPipe } from '../pipes/cutext.pipe';
   declarations: [
     NavbarComponent,
     SlideshowComponent,
-    CutextPipe
+    PeliculasPosterGridComponent
   ],
   exports: [
     NavbarComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    PeliculasPosterGridComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    RatingModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }
