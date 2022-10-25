@@ -7,7 +7,7 @@ export class PosterPipe implements PipeTransform {
 
   transform(poster: string): string {
     //https://image.tmdb.org/t/p/w500{{ movie.poster_path }}
-    console.log(poster);
+    //console.log(poster);
     if( poster ){
       return `https://image.tmdb.org/t/p/w500${poster}`;
     }

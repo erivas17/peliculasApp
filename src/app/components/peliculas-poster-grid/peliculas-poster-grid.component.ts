@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Movie } from '../../interfaces/cartelera-response';
 
@@ -11,11 +12,14 @@ export class PeliculasPosterGridComponent implements OnInit {
 
   @Input() movies: Movie[] = [];
 
-  constructor() { }
+  constructor( private router: Router ) { }
 
   ngOnInit(): void {
-    console.log('aaaaaaa22');
-    console.log(this.movies);
+    
+  }
+
+  onMovieClick( movie: Movie ){
+    this.router.navigate(['/pelicula', movie.id]);
   }
 
 }

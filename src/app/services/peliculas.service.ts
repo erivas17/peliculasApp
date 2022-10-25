@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { CarteleraResponse } from '../interfaces/cartelera-response';
+import { MovieResponse } from '../interfaces/movie-response';
 import { Movie } from '../interfaces/cartelera-response';
 
 @Injectable({
@@ -45,5 +46,24 @@ export class PeliculasService {
           this.cargando = false;
       })
     )
+  }
+
+  buscarPeliculas( texto: string ){
+
+    const params = {...this.params, page: '1', query: texto }
+
+    return this.http.get<CarteleraResponse>(`${ this.url }/search/movie`, {
+      params
+    }).pipe(map( resp => resp.results))
+  }
+
+  resetCarteleraPage(){
+    this.carteleraPage = 1;
+  }
+
+  getPeliculaDetail(id: string){
+    return this.http.get<MovieResponse>(`${ this.url }/movie/${ id }`, {
+      params: this.params
+    });
   }
 }
